@@ -1,0 +1,83 @@
+<div class="box-container">
+  <div class="container">
+    <div class="item">
+      <div class="titlu">
+        <textarea
+          type="text"
+          placeholder="Enter survey title"
+          matInput
+        ></textarea>
+      </div>
+    </div>
+    <form>
+      <div class="nr">
+        <label class="grid-item">1. </label>
+        <label class="grid-item">2. </label>
+        <label class="grid-item">3. </label>
+        <label class="grid-item">4. </label>
+        <label class="grid-item">5. </label>
+        <label class="grid-item">6. </label>
+      </div>
+
+      <div class="textfields">
+        <textarea type="text" placeholder="Enter question" matInput></textarea>
+        <button class="delete">Delete</button>
+        <textarea type="text" placeholder="Enter question" matInput></textarea>
+        <button class="delete">Delete</button>
+        <textarea type="text" placeholder="Enter question" matInput></textarea>
+        <button class="delete">Delete</button>
+        <textarea type="text" placeholder="Enter question" matInput></textarea>
+        <button class="delete">Delete</button>
+        <textarea type="text" placeholder="Enter question" matInput></textarea>
+        <button class="delete">Delete</button>
+        <textarea type="text" placeholder="Enter question" matInput></textarea>
+      </div>
+    </form>
+
+    <div class="rate">
+      <input type="radio" id="star5" name="rate" value="5" />
+      <label for="star5" title="text">5 stars</label>
+      <input type="radio" id="star4" name="rate" value="4" />
+      <label for="star4" title="text">4 stars</label>
+      <input type="radio" id="star3" name="rate" value="3" />
+      <label for="star3" title="text">3 stars</label>
+      <input type="radio" id="star2" name="rate" value="2" />
+      <label for="star2" title="text">2 stars</label>
+      <input type="radio" id="star1" name="rate" value="1" />
+      <label for="star1" title="text">1 star</label>
+    </div>
+
+
+    <button class="addq">Add question</button>
+
+<!--
+    <mat-form-field appearance="outline">
+      <mat-label>Professor</mat-label>
+      <mat-select [(ngModel)]="selectedProfessor" name="professor">
+        <mat-option *ngFor="let professor of professors" [value]="professor.value">
+          {{ professor.value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  -->
+
+
+    <label class="select">
+      Select the date until the survey can be completed:
+    </label>
+    <div class="datepicker">
+      <input
+        type="date"
+        id="start"
+        name="trip-start"
+        value="2018-07-22"
+        min="2022-01-01"
+        max="2025-12-31"
+      />
+    </div>
+
+    <button class="create">Create survey</button>
+
+  </div>
+</div>
+

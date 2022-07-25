@@ -1,0 +1,28 @@
+<div class="submit-container">
+  <div class="container">
+
+
+    <mat-form-field class="filterby" appearance="fill">
+      <mat-label>Select survey title</mat-label>
+      <mat-select [(ngModel)]="selectedFilter" name="filter">
+        <mat-option *ngFor="let filter of filters" [value]="filter.value">
+          {{ filter.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <label> Enter the question you want to add: </label>
+
+    <textarea
+    type="text"
+    placeholder="Type your answer here..."
+    matInput></textarea>
+
+ <div class="submit">
+    <button>Submit question</button>
+</div>
+  </div>
+
+
+</div>

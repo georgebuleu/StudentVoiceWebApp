@@ -1,0 +1,57 @@
+.nav-container {
+  position: sticky;
+  display: flex;
+  height: 100px;
+  flex-direction: row-reverse;
+  align-items: center;
+  background-color: #465775;
+  width: 100%;
+}
+.mat-icon {
+  color: white;
+  font-size: 40px;
+  height: 40px;
+  width: 50px;
+  padding:20px;
+  &:hover{
+    color: black;
+  }
+}
+
+.logo {
+  margin-right: auto;
+  order: 2;
+  margin-left: 30px;
+}
+h1 {
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba(50, 148, 115, 0.08);
+  }
+
+  &:active,
+  &:visited {
+    color: #01140e;
+  }
+
+  &.active {
+    background-color: rgba(31, 189, 136, 0.08);
+    font-weight: bold;
+    color: #01140e;
+  }
+}
+
+button {
+  background-color: transparent;
+}
+
+.mat-menu-item {
+  width: 230px;
+  font-size: 23px;
+  font-family: 'Playfair Display', serif;
+}
