@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentVoice.Persistance.Data;
 
+#nullable disable
+
 namespace StudentVoice.Persistance.Data.Migrations
 {
     [DbContext(typeof(StudentVoiceDbContext))]
@@ -15,17 +17,19 @@ namespace StudentVoice.Persistance.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.17")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "6.0.7")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("StudentVoice.Domain.Entities.Notification", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("NotificationDate")
                         .HasColumnType("datetime2")
@@ -52,21 +56,21 @@ namespace StudentVoice.Persistance.Data.Migrations
                         new
                         {
                             Id = 1,
-                            NotificationDate = new DateTime(2022, 7, 20, 14, 51, 34, 170, DateTimeKind.Local).AddTicks(6402),
+                            NotificationDate = new DateTime(2022, 7, 29, 14, 48, 7, 788, DateTimeKind.Local).AddTicks(9503),
                             NotificationName = "Question needs to be approved",
                             isSeen = false
                         },
                         new
                         {
                             Id = 2,
-                            NotificationDate = new DateTime(2022, 7, 20, 14, 51, 34, 170, DateTimeKind.Local).AddTicks(7083),
+                            NotificationDate = new DateTime(2022, 7, 29, 14, 48, 7, 788, DateTimeKind.Local).AddTicks(9510),
                             NotificationName = "A student answered a question",
                             isSeen = true
                         },
                         new
                         {
                             Id = 3,
-                            NotificationDate = new DateTime(2022, 7, 20, 14, 51, 34, 170, DateTimeKind.Local).AddTicks(7096),
+                            NotificationDate = new DateTime(2022, 7, 29, 14, 48, 7, 788, DateTimeKind.Local).AddTicks(9513),
                             NotificationName = "Your qustion was aproved",
                             isSeen = true
                         });
@@ -76,19 +80,20 @@ namespace StudentVoice.Persistance.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Answer")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("QuestionName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
                     b.Property<int?>("SurveyId")
                         .HasColumnType("int");
 
-                    b.Property<string>("TextField")
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -101,30 +106,30 @@ namespace StudentVoice.Persistance.Data.Migrations
                         new
                         {
                             Id = 1,
+                            Answer = "5",
                             QuestionName = "Please rate this class.",
-                            Rating = 8,
-                            TextField = ""
+                            Type = "Rating"
                         },
                         new
                         {
                             Id = 2,
+                            Answer = "I really liked the fact that this class focused more on the quality of code than the quantity",
                             QuestionName = "What is something you liked about this class?",
-                            Rating = -1,
-                            TextField = "I really liked the fact that this class focused more on the quality of code than the quantity"
+                            Type = "Text"
                         },
                         new
                         {
                             Id = 3,
+                            Answer = "I really liked the fact that this class focused more on the quality of code than the quantity.",
                             QuestionName = "What is something you liked about this class?",
-                            Rating = -1,
-                            TextField = "I really liked the fact that this class focused more on the quality of code than the quantity"
+                            Type = "Text"
                         },
                         new
                         {
                             Id = 4,
-                            QuestionName = "What is something that we can improve about this class",
-                            Rating = -1,
-                            TextField = "N/A"
+                            Answer = "I don't feel like there are improvements needed.",
+                            QuestionName = "What is something that we can improve about this class?",
+                            Type = "Text"
                         });
                 });
 
@@ -133,8 +138,9 @@ namespace StudentVoice.Persistance.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Class")
                         .HasMaxLength(255)
@@ -145,18 +151,13 @@ namespace StudentVoice.Persistance.Data.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("Date");
 
-                    b.Property<DateTime>("ExperationDate")
+                    b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("datetime2")
                         .HasColumnName("ExpirationDate");
 
                     b.Property<int>("Likes")
                         .HasColumnType("int")
                         .HasColumnName("Likes");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("Name");
 
                     b.Property<string>("Professor")
                         .HasMaxLength(255)
@@ -166,10 +167,6 @@ namespace StudentVoice.Persistance.Data.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int")
                         .HasColumnName("Rating");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Status");
 
                     b.Property<string>("Subject")
                         .HasMaxLength(255)
@@ -185,39 +182,33 @@ namespace StudentVoice.Persistance.Data.Migrations
                         {
                             Id = 1,
                             Class = "I",
-                            Date = new DateTime(2022, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ExperationDate = new DateTime(2022, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            ExpirationDate = new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
                             Likes = 34,
-                            Name = "Survey 1",
                             Professor = "Alex",
                             Rating = 5,
-                            Status = "Completed",
                             Subject = "Mate"
                         },
                         new
                         {
                             Id = 2,
                             Class = "II",
-                            Date = new DateTime(2022, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ExperationDate = new DateTime(2022, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            ExpirationDate = new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
                             Likes = 23,
-                            Name = "Survey 2",
                             Professor = "Cosmin",
                             Rating = 4,
-                            Status = "Completed",
                             Subject = "Mate"
                         },
                         new
                         {
                             Id = 3,
                             Class = "II",
-                            Date = new DateTime(2022, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
-                            ExperationDate = new DateTime(2022, 7, 20, 0, 0, 0, 0, DateTimeKind.Local),
+                            Date = new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
+                            ExpirationDate = new DateTime(2022, 7, 29, 0, 0, 0, 0, DateTimeKind.Local),
                             Likes = 23,
-                            Name = "Survey 2",
                             Professor = "Cosmin",
                             Rating = 4,
-                            Status = "Uncompleted",
                             Subject = "Info"
                         });
                 });
@@ -227,10 +218,12 @@ namespace StudentVoice.Persistance.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("Email");
@@ -250,68 +243,13 @@ namespace StudentVoice.Persistance.Data.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("Password");
 
-                    b.Property<string>("PhoneNumber")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("PhoneNumber");
-
                     b.Property<bool>("isAdmin")
                         .HasColumnType("bit")
                         .HasColumnName("isAdmin");
 
-                    b.Property<bool>("isBanned")
-                        .HasColumnType("bit")
-                        .HasColumnName("isBanned");
-
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "viorel@gmail.com",
-                            FirstName = "Viorel",
-                            LastName = "Raul",
-                            Password = "1234",
-                            PhoneNumber = "02320234",
-                            isAdmin = false,
-                            isBanned = false
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Email = "cosmin@gmail.com",
-                            FirstName = "Cosmin",
-                            LastName = "QQQ",
-                            Password = "34252",
-                            PhoneNumber = "0rrwrt54",
-                            isAdmin = false,
-                            isBanned = false
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "andreiRotar@admin.gmail.com",
-                            FirstName = "Andrei",
-                            LastName = "Rotar",
-                            Password = "sgsdsjeere",
-                            PhoneNumber = "0rrwrt54",
-                            isAdmin = true,
-                            isBanned = false
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Email = "sarah.ionescu@gmail.com",
-                            FirstName = "Sarah",
-                            LastName = "Ionescu",
-                            Password = "sgsdsjeere",
-                            PhoneNumber = "0rrwrt54",
-                            isAdmin = false,
-                            isBanned = true
-                        });
                 });
 
             modelBuilder.Entity("SurveyUser", b =>
@@ -327,53 +265,6 @@ namespace StudentVoice.Persistance.Data.Migrations
                     b.HasIndex("UsersId");
 
                     b.ToTable("SurveyUser");
-
-                    b.HasData(
-                        new
-                        {
-                            SurveysId = 1,
-                            UsersId = 1
-                        },
-                        new
-                        {
-                            SurveysId = 2,
-                            UsersId = 1
-                        },
-                        new
-                        {
-                            SurveysId = 3,
-                            UsersId = 1
-                        },
-                        new
-                        {
-                            SurveysId = 1,
-                            UsersId = 2
-                        },
-                        new
-                        {
-                            SurveysId = 3,
-                            UsersId = 2
-                        },
-                        new
-                        {
-                            SurveysId = 2,
-                            UsersId = 3
-                        },
-                        new
-                        {
-                            SurveysId = 3,
-                            UsersId = 3
-                        },
-                        new
-                        {
-                            SurveysId = 2,
-                            UsersId = 4
-                        },
-                        new
-                        {
-                            SurveysId = 1,
-                            UsersId = 4
-                        });
                 });
 
             modelBuilder.Entity("StudentVoice.Domain.Entities.Notification", b =>

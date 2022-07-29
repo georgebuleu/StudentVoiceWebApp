@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 using StudentVoice.Business.Exceptions;
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 
 namespace StudentVoice.Api.Middleware
@@ -48,7 +48,7 @@ namespace StudentVoice.Api.Middleware
             }
             if (result != string.Empty)
             {
-                result = JsonConvert.SerializeObject(new { error = ex.Message });
+                result = JsonSerializer.Serialize(new { error = ex.Message });
             }
 
             context.Response.StatusCode = (int)httpStatusCode;

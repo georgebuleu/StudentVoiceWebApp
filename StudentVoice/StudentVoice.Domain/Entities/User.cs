@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,8 @@ namespace StudentVoice.Domain.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        [JsonIgnore]
         public string Password { get; set; }
         public bool isAdmin {get; set; }
-        public string PhoneNumber { get; set; }
-        public bool isBanned {get; set; }
         public  ICollection<Survey> Surveys { get; set; }
         public ICollection<Notification> Notifications { get; set; }
 

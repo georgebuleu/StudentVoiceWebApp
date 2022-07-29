@@ -10,10 +10,8 @@ namespace StudentVoice.Domain.Entities
     {
         public string QuestionName { get; set; }
 
-        public string TextField { get; set; }
-
-
-        public int Rating { get; set; }
+        public string Answer { get; set; }
+        public String Type { get; set; }
 
     }
 }

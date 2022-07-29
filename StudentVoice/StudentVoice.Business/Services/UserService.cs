@@ -11,6 +11,7 @@ using StudentVoice.Domain.Entities;
 
 namespace StudentVoice.Business.Services
 {
+
    public class UserService : IUserService
     {
         private readonly IUserRepository  _userRepository;
@@ -24,18 +25,25 @@ namespace StudentVoice.Business.Services
 
         public int AddUser(UserModel model)
         {
-            var user = _userRepository.Add(_mapper.Map<User>(model));
-            return user.Id;
+                
+                var user = _userRepository.Add(_mapper.Map<User>(model));
+                return user.Id;
+            
         }
 
-        public void BanUser(int id)
-        {
-            _userRepository.BanUsers(id);
-        } 
+        
 
         public void Delete(int id)
         {
            _userRepository.Delete(_userRepository.GetById(id));
+        }
+
+        public int GetByEmail(string email)
+        {
+            var user = _userRepository.GetUserByEmail(email);
+       
+            return user;
+           
         }
 
         public User GetById(int id)
@@ -51,11 +59,6 @@ namespace StudentVoice.Business.Services
         public IEnumerable<User> GetUsers()
         {
             return _userRepository.ListAll();
-        }
-
-        public void UnbanUsers(int id)
-        {
-            _userRepository.UnbanUsers(id);
         }
 
         

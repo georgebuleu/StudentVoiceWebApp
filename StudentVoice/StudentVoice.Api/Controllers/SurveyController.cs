@@ -20,7 +20,13 @@ namespace StudentVoice.Api.Controllers
         {
             return Ok(_surveyService.GetSurveys());
         }
-        
+
+        [HttpGet("{id}")]
+        public IActionResult GetSurveyByUser(int id)
+        {
+            return Ok(_surveyService.GetSurveyByUser(id));
+        }
+
         [HttpPost]
         public IActionResult AddSurvey([FromBody] SurveyModel model)
         {

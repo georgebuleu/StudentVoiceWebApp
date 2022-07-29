@@ -9,9 +9,7 @@ namespace StudentVoice.Domain.IRepositories
 {
     public interface IUserRepository: IBaseRepository <User>
     {
-        public void BanUsers(int id);
-        public void UnbanUsers(int id);
-
         public IEnumerable<User> GetUserBySurvey(int id);
+        public int GetUserByEmail(string email);
     }
 }

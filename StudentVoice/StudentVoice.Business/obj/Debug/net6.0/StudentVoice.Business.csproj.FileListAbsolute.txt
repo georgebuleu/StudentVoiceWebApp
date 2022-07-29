@@ -1,0 +1,17 @@
+D:\StudentVoice\StudentVoice\StudentVoice.Business\bin\Debug\net6.0\StudentVoice.Business.deps.json
+D:\StudentVoice\StudentVoice\StudentVoice.Business\bin\Debug\net6.0\StudentVoice.Business.runtimeconfig.json
+D:\StudentVoice\StudentVoice\StudentVoice.Business\bin\Debug\net6.0\StudentVoice.Business.dll
+D:\StudentVoice\StudentVoice\StudentVoice.Business\bin\Debug\net6.0\StudentVoice.Business.pdb
+D:\StudentVoice\StudentVoice\StudentVoice.Business\bin\Debug\net6.0\StudentVoice.Domain.dll
+D:\StudentVoice\StudentVoice\StudentVoice.Business\bin\Debug\net6.0\StudentVoice.Domain.pdb
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.csproj.AssemblyReference.cache
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.AssemblyInfoInputs.cache
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.AssemblyInfo.cs
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.csproj.CoreCompileInputs.cache
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.csproj.CopyComplete
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.dll
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\refint\StudentVoice.Business.dll
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.pdb
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\StudentVoice.Business.genruntimeconfig.cache
+D:\StudentVoice\StudentVoice\StudentVoice.Business\obj\Debug\net6.0\ref\StudentVoice.Business.dll

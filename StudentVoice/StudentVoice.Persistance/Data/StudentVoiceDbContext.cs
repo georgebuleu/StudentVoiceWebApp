@@ -37,7 +37,7 @@ namespace StudentVoice.Persistance.Data
 
         private static void SeedDatabase(ModelBuilder modelBuilder)
         {
-
+            /*
             modelBuilder.SharedTypeEntity<Dictionary<string, object>>("SurveyUser")
                 .HasData(
                 new { UsersId = 1, SurveysId = 1 },
@@ -52,6 +52,7 @@ namespace StudentVoice.Persistance.Data
 
 
                 ) ;
+            */
 
             modelBuilder.Entity<Survey>().HasData(new List<Survey>()
             {
@@ -59,12 +60,10 @@ namespace StudentVoice.Persistance.Data
                 {
                    
                     Id = 1,
-                    Status = "Completed",
                     Date =System.DateTime.Today,
-                    Name ="Survey 1",
                     Rating = 5,
                     Likes = 34,
-                    ExperationDate = System.DateTime.Today,
+                    ExpirationDate = System.DateTime.Today,
                     Professor="Alex",
                     Class="I",
                     Subject="Mate"
@@ -73,12 +72,10 @@ namespace StudentVoice.Persistance.Data
                 new Survey()
                 {
                     Id=2,
-                    Status="Completed",
                     Date=System.DateTime.Today,
-                    Name="Survey 2",
                     Rating=4,
                     Likes=23,
-                    ExperationDate=System.DateTime.Today,
+                    ExpirationDate=System.DateTime.Today,
                     Professor="Cosmin",
                     Class="II",
                     Subject="Mate"
@@ -86,12 +83,10 @@ namespace StudentVoice.Persistance.Data
                 new Survey()
                 {
                     Id=3,
-                    Status="Uncompleted",
                     Date=System.DateTime.Today,
-                    Name="Survey 2",
                     Rating=4,
                     Likes=23,
-                    ExperationDate=System.DateTime.Today,
+                    ExpirationDate=System.DateTime.Today,
                     Professor="Cosmin",
                     Class="II",
                     Subject="Info"
@@ -99,80 +94,31 @@ namespace StudentVoice.Persistance.Data
 
             }); ;
 
-            modelBuilder.Entity<User>().HasData(new List<User>()
-            {
-               new User() {
-                        Id=1,
-                        FirstName="Viorel",
-                        LastName="Raul",
-                        Email="viorel@gmail.com",
-                        Password="1234",
-                        isAdmin=false,
-                        PhoneNumber="02320234",
-                        isBanned=false,
-                },
-
-
-            new User()
-                {
-                    Id=2,
-                    FirstName="Cosmin",
-                    LastName="QQQ",
-                    Email="cosmin@gmail.com",
-                    Password="34252",
-                    isAdmin=false,
-                    PhoneNumber="0rrwrt54",
-                    isBanned=false,
-                },
-                new User()
-                {
-                    Id=3,
-                    FirstName="Andrei",
-                    LastName="Rotar",
-                    Email="andreiRotar@admin.gmail.com",
-                    Password="sgsdsjeere",
-                    isAdmin=true,
-                    PhoneNumber="0rrwrt54",
-                    isBanned=false,
-                },
-                 new User()
-                {
-                    Id=4,
-                    FirstName="Sarah",
-                    LastName="Ionescu",
-                    Email="sarah.ionescu@gmail.com",
-                    Password="sgsdsjeere",
-                    isAdmin=false,
-                    PhoneNumber="0rrwrt54",
-                    isBanned=true,
-                }
-
-            } );
             modelBuilder.Entity<Question>().HasData(new List<Question>()
             {
                 new Question() {
                     Id = 1,
                     QuestionName = "Please rate this class.",
-                    Rating = 8,
-                    TextField = ""
+                    Answer = "5",
+                    Type = "Rating"
                     },
                  new Question() {
                     Id = 2,
                     QuestionName = "What is something you liked about this class?",
-                    Rating = -1,
-                    TextField = "I really liked the fact that this class focused more on the quality of code than the quantity"
+                    Answer= "I really liked the fact that this class focused more on the quality of code than the quantity",
+                    Type="Text"
                     },
                  new Question() {
                     Id=3,
                     QuestionName = "What is something you liked about this class?",
-                    Rating = -1,
-                    TextField = "I really liked the fact that this class focused more on the quality of code than the quantity"
+                    Answer = "I really liked the fact that this class focused more on the quality of code than the quantity.",
+                    Type="Text"
                     },
                  new Question() {
                     Id=4,
-                    QuestionName = "What is something that we can improve about this class",
-                    Rating = -1,
-                    TextField = "N/A"
+                    QuestionName = "What is something that we can improve about this class?",
+                    Answer = "I don't feel like there are improvements needed.",
+                    Type="Text"
                     }
 
             }) ;

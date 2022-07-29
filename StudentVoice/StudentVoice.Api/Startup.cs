@@ -84,7 +84,7 @@ namespace StudentVoice.Api
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "StudentVoice.Api v1"));
             }
             app.UseAuthentication();
-            app.UseAuthorization();
+            
 
             app.UseCors("ApiOrigins");
 
@@ -92,7 +92,7 @@ namespace StudentVoice.Api
 
             app.UseRouting();
 
-            ;
+            app.UseAuthorization();
             app.UseMiddleware<ExceptionHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
@@ -104,8 +104,8 @@ namespace StudentVoice.Api
         private void BuildMvc(IServiceCollection services)
         {
             services.AddMvc(options => { options.Filters.Add(typeof(ValidationFilter)); })
-                .AddFluentValidation(c => { c.RegisterValidatorsFromAssemblyContaining<Startup>(); })
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+                .AddFluentValidation(c => { c.RegisterValidatorsFromAssemblyContaining<Startup>(); });
+                
         }
     }
 }
