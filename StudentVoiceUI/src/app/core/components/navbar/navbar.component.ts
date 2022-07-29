@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { faBars,faBell,faUser } from '@fortawesome/free-solid-svg-icons';
+import {Component} from '@angular/core';
+import {LogoutService} from "../../services/logout.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +8,19 @@ import { faBars,faBell,faUser } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent  {
-  loggedIn: boolean = true;
+  loggedIn = this.logoutService.isUserAuthenticated();
 
-  constructor() {}
+  constructor
+  (
+    private logoutService: LogoutService,
+    private router:Router
+  ) {}
 
+  logout(){
+    this.logoutService.logout();
+    this.router.navigate([''])
+
+  }
 }
+
+

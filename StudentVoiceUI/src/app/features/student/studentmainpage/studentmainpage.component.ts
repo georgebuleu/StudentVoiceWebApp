@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Survey } from 'src/app/shared/models/surveyModel';
 import { SurveyService } from 'src/app/core/services/survey.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import {LogoutService} from "../../../core/services/logout.service";
 
 interface Filter {
   value: string;
@@ -36,7 +37,9 @@ export class StudentmainpageComponent implements OnInit {
     {value: 'rating', viewValue: 'Rating'},
   ];
 
-  constructor(private surveyService: SurveyService, private jwtHelper: JwtHelperService){}
+  constructor(
+    private surveyService: SurveyService,
+    ){}
 
   ngOnInit() : void{
     this.surveyService
@@ -44,20 +47,10 @@ export class StudentmainpageComponent implements OnInit {
     .subscribe((res: Survey[]) => (this.surveys = res));
   }
 
-  isUserAuthenticated(){
-    const token= localStorage.getItem("jwt");
-    if(token && !this.jwtHelper.isTokenExpired){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }
 
 
-logOut(){
-  localStorage.removeItem("jwt");
-}
+
+
 
 
 

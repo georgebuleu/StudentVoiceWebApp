@@ -1,51 +1,24 @@
+
 <div class="container">
-  <div class="lsdiv">
-    <form>
-      <div class="textfields">
-        <label class="un" for="un">Username</label>
-        <input formControlName="username" type="text" name="un" input />
-        <p
-          class="error-message"
-          *ngIf=""
-        >
-          This input is required!
-        </p>
-
-        <label class="p" for="pw">Password</label>
-
-        <input type="password" name="pw" formControlName="password" />
-
-        <label class="rm">Remember me</label>
-
-        <input type="checkbox" formControlName="checkbox" />
-
-        <div class="up"></div>
-      </div>
-    </form>
-
-    <div class="login">
-      <button
-        class="login-button"
-        type="submit"
-        routerLink="/studentmainpage"
-        routerLinkActive="active"
-      >
-        Login
-      </button>
-    </div>
-    <div class="link-container">
-      <a
-        class="links"
-        routerLink="/createaccount"
-        routerLinkActive="active">Sign up</a>
-
-      <a
-        class="links"
-        routerLink="/forgotyourpassword"
-        routerLinkActive="active">
-        Forgot your password?
-    </a>
-
-    </div>
+  <div class="form-container">
+<form #form="ngForm" [formGroup]="loginFormGroup" (ngSubmit)="onSubmitForm()">
+  <div class="email">
+    <input formControlName="email" Email>
   </div>
+  <div class="email">
+    <input type="password" formControlName="password" Password>
+  </div>
+  <!--  <div class="checkbox-container">-->
+  <!--    -->
+  <!--    <input type="checkbox"-->
+  <!--           formControlName="reminder"> Remind me-->
+  <!--  </div>-->
+  <div class="button">
+    <button class="submit-button"
+            type="submit"
+            [disabled]="loginFormGroup.invalid">Submit
+    </button>
+  </div>
+</form>
+</div>
 </div>
