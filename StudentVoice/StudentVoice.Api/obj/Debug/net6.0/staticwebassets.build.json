@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1U50+nVEuSVA5VPFnVk8RJ90uMACsJ/COBmlgEGtiRk=",
+  "Source": "StudentVoice.Api",
+  "BasePath": "_content/StudentVoice.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

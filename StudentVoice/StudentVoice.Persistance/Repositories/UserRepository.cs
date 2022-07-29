@@ -16,29 +16,25 @@ namespace StudentVoice.Persistance.Repositories
             
         }
 
-        public void BanUsers(int id)
+        public IEnumerable<User> GetUserBySurvey(int surveyId)
         {
-            User user = _dbContext.Set<User>().Find(id);
-            user.isBanned = true;
-            _dbContext.SaveChanges();
+            return from Survey in _dbContext.Surveys
+                    where  Survey.Id == surveyId
+                    from Users in Survey.Users
+                    select Users;
         }
 
-       
-            public IEnumerable<User> GetUserBySurvey(int surveyId)
-            {
-                return from Survey in _dbContext.Surveys
-                       where  Survey.Id== surveyId
-                       from Users in Survey.Users
-                       select Users;
-            }
+        public int GetUserByEmail(string email)
+        {
+            var user = (from x in _dbContext.Users
+                       where x.Email == email
+                       select x.Id).FirstOrDefault();
+
+            return user;
+        }
       
 
-        public void UnbanUsers(int id)
-        {
-            User user = _dbContext.Set<User>().Find(id);
-            user.isBanned = false;
-            _dbContext.SaveChanges();
-        }
+       
 
 
 

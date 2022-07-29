@@ -3,12 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using StudentVoice.Business.Models;
 using StudentVoice.Business.Services.IService;
 using StudentVoice.Domain.Entities;
+using System;
 
 namespace StudentVoice.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+   
     public class UserController : ControllerBase { 
 
         private readonly IUserService _userService;
@@ -17,24 +18,44 @@ namespace StudentVoice.Api.Controllers
     }
 
     [HttpGet]
-    [Authorize]
+   
     public IActionResult GetAll()
     {
         return Ok(_userService.GetUsers());
     }
-        [Authorize]
+        
+
         [HttpGet("{id}")]
       public IActionResult GetByID([FromBody] int id)
         {
             var userID = _userService.GetById(id);
             return Ok(userID);
         }
-        
+
+        [HttpGet("survey/{id}")]
+        public IActionResult GetUserBySurvey(int id)
+        {
+            return Ok(_userService.GetUserBySurvey(id));
+        }
+       
+
+
 
         [HttpPost]
-        public IActionResult AddSurvey([FromBody] UserModel model)
+        public IActionResult AddUser([FromBody] UserModel model)
         {
-            return CreatedAtAction(null, _userService.AddUser(model));
+
+            try
+            {
+
+                if (model.Email.Equals(_userService.GetById(_userService.GetByEmail(model.Email)).Email))
+                return BadRequest("Email already exists");
+            }
+            catch (Exception) {
+
+                return CreatedAtAction(null, _userService.AddUser(model));
+            }
+            return BadRequest("Email already exists2");
         }
         [HttpPut]
 
@@ -43,18 +64,7 @@ namespace StudentVoice.Api.Controllers
             _userService.Update(model);
             return NoContent();
         }
-        
-        [HttpPut ("{id}")]
-
-        public IActionResult BanUser( int id)
-        {
-            
-            _userService.BanUser(id);
-
-            return NoContent();
-        }
-        
-   
+       
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

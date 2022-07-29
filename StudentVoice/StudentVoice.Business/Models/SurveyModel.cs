@@ -8,14 +8,13 @@ namespace StudentVoice.Business.Models
 {
     public class SurveyModel
     {
-        public String status { get; set; }
-        public String name { get; set; }
-        public int rating { get; set; }
-        public int likes { get; set; }
-        public DateTime date { get; set; }
-        public DateTime experationDate { get; set; }
+        public int Rating { get; set; }
+        public int Likes { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime ExpirationDate { get; set; }
         public String Professor {get;set;}
         public String Class {get;set;}
         public String Subject{get;set;}
+       
     }
 }

@@ -23,16 +23,11 @@ namespace StudentVoice.Persistance.Data.Mappings
             //.IsRequired();
 
             modelBuilder.Entity<Question>()
-               .Property(s => s.Rating)
-               .HasColumnName("Rating");
+               .Property(s => s.QuestionName)
+               .HasColumnName("Answer");
             //.IsRequired();
 
-            modelBuilder.Entity<Question>()
-                .Property(s => s.TextField)
-                .HasColumnName("TextField")
-                .HasMaxLength(255);
-                //.IsRequired();
-
+          
         }
     }
 }

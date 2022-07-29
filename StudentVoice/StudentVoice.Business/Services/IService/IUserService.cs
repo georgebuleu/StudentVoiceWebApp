@@ -16,10 +16,7 @@ namespace StudentVoice.Business.Services.IService
         public IEnumerable<User> GetUserBySurvey(int id);
         public void Update(User user);
         public void Delete(int id);
-
-        public void BanUser(int id);
-        public void UnbanUsers(int id);
-       
+        public int GetByEmail(string email);
 
     }
 }

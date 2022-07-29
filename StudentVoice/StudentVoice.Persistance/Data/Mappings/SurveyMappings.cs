@@ -17,16 +17,7 @@ namespace StudentVoice.Persistance.Data.Mappings
                 .HasColumnName("Id")
                 .IsRequired();
 
-            modelBuilder.Entity<Survey>()
-               .Property(s => s.Status)
-               .HasColumnName("Status");
-               //.IsRequired();
-
-            modelBuilder.Entity<Survey>()
-                .Property(s => s.Name)
-                .HasColumnName("Name")
-                .HasMaxLength(50);
-            //.IsRequired();
+          
 
             modelBuilder.Entity<Survey>()
                 .Property(s => s.Rating)
@@ -44,7 +35,7 @@ namespace StudentVoice.Persistance.Data.Mappings
             //.IsRequired();
 
             modelBuilder.Entity<Survey>()
-                  .Property(s => s.ExperationDate)
+                  .Property(s => s.ExpirationDate)
                   .HasColumnName("ExpirationDate");
             //.IsRequired();
 

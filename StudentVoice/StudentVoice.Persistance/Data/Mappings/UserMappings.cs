@@ -12,7 +12,6 @@ namespace StudentVoice.Persistance.Data.Mappings
     {
         internal static void Map(ModelBuilder modelBuilder)
         {
-         
 
             modelBuilder.Entity<User>()
                 .Property(s => s.Id)
@@ -29,13 +28,17 @@ namespace StudentVoice.Persistance.Data.Mappings
                 .Property(s => s.LastName)
                 .HasColumnName("LastName")
                 .HasMaxLength(30);
+
             // .IsRequired();
 
+           
             modelBuilder.Entity<User>()
                 .Property(s => s.Email)
                 .HasColumnName("Email")
-                .HasMaxLength(50);
-            //.IsRequired();
+                .HasMaxLength(50)
+                .IsRequired();
+
+
 
             modelBuilder.Entity<User>()
                 .Property(s => s.Password)
@@ -48,16 +51,7 @@ namespace StudentVoice.Persistance.Data.Mappings
                   .HasColumnName("isAdmin");
             //.IsRequired();
 
-            modelBuilder.Entity<User>()
-                  .Property(s => s.PhoneNumber)
-                  .HasColumnName("PhoneNumber")
-                  .HasMaxLength(50);
-            //.IsRequired();
-
-            modelBuilder.Entity<User>()
-                  .Property(s => s.isBanned)
-                  .HasColumnName("isBanned");
-                 // .IsRequired();
+          
             
         }
     }
