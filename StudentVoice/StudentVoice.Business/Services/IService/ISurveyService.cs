@@ -12,7 +12,7 @@ namespace StudentVoice.Business.Services.IService
     {
         public IEnumerable<Survey> GetSurveys();
         public Survey GetSurvey(int id);
-        public int AddSurvey(SurveyModel model);
+        public int AddSurvey(SurveyModel survey);
         public void Update(Survey survey);
         public void Delete(int id);
         public IEnumerable< Survey> GetSurveyByUser(int id);

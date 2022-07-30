@@ -25,6 +25,7 @@ namespace StudentVoice.Business.Services
         public int AddSurvey(SurveyModel model)
         {
             var survey = _surveyRepository.Add(_mapper.Map<Survey>(model));
+         
             return survey.Id;
         }
 

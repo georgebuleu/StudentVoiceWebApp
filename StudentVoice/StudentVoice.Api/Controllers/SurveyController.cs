@@ -13,6 +13,7 @@ namespace StudentVoice.Api.Controllers
         public SurveyController(ISurveyService surveyService)
         {
             _surveyService = surveyService;
+
         }
         [HttpGet]
 
@@ -21,16 +22,24 @@ namespace StudentVoice.Api.Controllers
             return Ok(_surveyService.GetSurveys());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("user/{id}")]
         public IActionResult GetSurveyByUser(int id)
         {
             return Ok(_surveyService.GetSurveyByUser(id));
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetSurveyById(int id)
+        {
+            return Ok(_surveyService.GetSurvey(id));
         }
 
         [HttpPost]
         public IActionResult AddSurvey([FromBody] SurveyModel model)
         {
-            return CreatedAtAction(null, _surveyService.AddSurvey(model));
+            var survey = _surveyService.AddSurvey(model);
+          
+            return CreatedAtAction(null, survey);
+         
         }
         [HttpPut]
 

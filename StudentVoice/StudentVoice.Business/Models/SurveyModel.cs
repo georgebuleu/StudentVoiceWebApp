@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentVoice.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace StudentVoice.Business.Models
         public String Professor {get;set;}
         public String Class {get;set;}
         public String Subject{get;set;}
-       
+        public ICollection<Question> Questions {get;set;}
+
     }
 }

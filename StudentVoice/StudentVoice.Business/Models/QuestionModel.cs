@@ -12,7 +12,8 @@ namespace StudentVoice.Business.Models
 
         public string Answer { get; set; }
 
-        public int id { get; set; }
         public String Type { get; set; }
+
+        
     }
 }

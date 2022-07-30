@@ -25,6 +25,7 @@ namespace StudentVoice.Business.Services
         public int AddQuestion(QuestionModel model)
         {
            var question = _questionRepository.Add(_mapper.Map<Question>(model));
+
             return question.Id;
         }
 
