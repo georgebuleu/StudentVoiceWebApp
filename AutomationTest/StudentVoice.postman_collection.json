@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "efcd6b2c-d8c1-4149-b6a2-e03dd5ce60b8",
+		"name": "StudentVoice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21701095"
+	},
+	"item": [
+		{
+			"name": "Get Survey by User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/1?id=3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"1"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"viorel@gmail.com\",\r\n  \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44389/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Survey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"status\": \"completed\",\r\n  \"name\": \"Survey 1\",\r\n  \"rating\": 10,\r\n  \"likes\": 5,\r\n  \"date\": \"2022-07-27T17:38:06.392Z\",\r\n  \"experationDate\": \"2022-10-27T17:38:06.392Z\",\r\n  \"users\": [\r\n    {\r\n      \"id\": 2,\r\n      \"firstName\": \"Viorel\",\r\n      \"lastName\": \"xulescu\",\r\n      \"email\": \"viorel@gmail.com\",\r\n      \"isAdmin\": true,\r\n      \"phoneNumber\": \"07070707\",\r\n      \"isBanned\": false,\r\n      \"surveys\": [\r\n        null\r\n      ],\r\n      \"notifications\": [\r\n        {\r\n          \"id\": 1,\r\n          \"notificationName\": \"New survey\",\r\n          \"notificationDate\": \"2022-07-27T17:38:06.392Z\",\r\n          \"isSeen\": true\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"questions\": [\r\n    {\r\n      \"id\": 0,\r\n      \"questionName\": \"Question 1\",\r\n      \"textField\": \"\",\r\n      \"rating\": 1\r\n    }\r\n  ],\r\n  \"professor\": \"Yulescu\",\r\n  \"class\": \"anul 4\",\r\n  \"subject\": \"calcul numeric\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44389/api/Survey",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"Survey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Survey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function(){\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"string\",\r\n  \"name\": \"string\",\r\n  \"rating\": 0,\r\n  \"likes\": 0,\r\n  \"date\": \"2022-07-27T17:52:20.162Z\",\r\n  \"experationDate\": \"2022-07-27T17:52:20.162Z\",\r\n  \"professor\": \"string\",\r\n  \"class\": \"string\",\r\n  \"subject\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44389/api/Survey",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"Survey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Notification",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function(){\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"isAdmin\": true,\r\n  \"phoneNumber\": \"string\",\r\n  \"isBanned\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44389/api/User",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"User"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"isAdmin\": true,\r\n  \"phoneNumber\": \"string\",\r\n  \"isBanned\": true,\r\n  \"surveys\": [\r\n    {\r\n      \"id\": 0,\r\n      \"status\": \"string\",\r\n      \"name\": \"string\",\r\n      \"rating\": 0,\r\n      \"likes\": 0,\r\n      \"date\": \"2022-07-27T18:29:28.166Z\",\r\n      \"experationDate\": \"2022-07-27T18:29:28.166Z\",\r\n      \"users\": [\r\n        null\r\n      ],\r\n      \"questions\": [\r\n        {\r\n          \"id\": 0,\r\n          \"questionName\": \"string\",\r\n          \"textField\": \"string\",\r\n          \"rating\": 0\r\n        }\r\n      ],\r\n      \"professor\": \"string\",\r\n      \"class\": \"string\",\r\n      \"subject\": \"string\"\r\n    }\r\n  ],\r\n  \"notifications\": [\r\n    {\r\n      \"id\": 0,\r\n      \"notificationName\": \"string\",\r\n      \"notificationDate\": \"2022-07-27T18:29:28.166Z\",\r\n      \"isSeen\": true\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44389/api/User/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"User",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function(){\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44389/api/User/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44389",
+					"path": [
+						"api",
+						"User",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
