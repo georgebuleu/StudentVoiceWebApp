@@ -1,0 +1,53 @@
+.box-container {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 0px 100px 0px;
+}
+
+.container {
+
+  width: 1050px;
+  height: 510px;
+  padding: 10px 100px;
+  box-sizing: border-box;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+div {
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+label {
+padding: 0px 10px;
+
+}
+
+button {
+
+  margin-top: 100px;
+  background-color: #465775;
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  text-align: center;
+  font-size: 18px;
+
+  &:hover {
+    background-color: rgb(95, 95, 95);
+    cursor: pointer;
+  }
+  &:active,
+  &:visited {
+    color: #01140e;
+  }
+
+}

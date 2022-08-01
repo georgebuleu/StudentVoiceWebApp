@@ -1,0 +1,6 @@
+{
+  "StudentVoice.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\asus\\Desktop\\proiect final\\StudentVoiceWebApp-main\\StudentVoice\\StudentVoice.Api",
+  "StudentVoice.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\asus\\Desktop\\proiect final\\StudentVoiceWebApp-main\\StudentVoice\\StudentVoice.Business",
+  "StudentVoice.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\asus\\Desktop\\proiect final\\StudentVoiceWebApp-main\\StudentVoice\\StudentVoice.Domain",
+  "StudentVoice.Persistance, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\asus\\Desktop\\proiect final\\StudentVoiceWebApp-main\\StudentVoice\\StudentVoice.Persistance"
+}

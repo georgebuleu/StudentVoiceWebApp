@@ -1,0 +1,22 @@
+<div class="main-container">
+  <label class="title">Statistics</label>
+  <div class="box-container">
+    <mat-radio-group
+      aria-labelledby="survey-radio-group-label"
+      class="survey-radio-group"
+      [(ngModel)]="survey"
+      >
+      <label id="survey-label"
+      >Choose a survey to display it's statistics in right side:</label>
+      <br/>
+      <mat-radio-button
+        class="survey-radio-button"
+        *ngFor="let title of title"
+        [value]="title">
+        {{ title }}
+      </mat-radio-button>
+    </mat-radio-group>
+
+    <div class="statistics-container"></div>
+  </div>
+</div>

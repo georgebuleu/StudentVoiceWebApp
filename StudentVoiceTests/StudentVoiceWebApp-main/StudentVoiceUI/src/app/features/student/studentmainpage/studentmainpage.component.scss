@@ -1,0 +1,40 @@
+.mat-grid-tile {
+  border: 2px solid #aec5eb;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  background-color: #98c1d9;
+  white-space: nowrap;
+  padding: 10px 20px;
+}
+
+
+.grid-container {
+    margin: auto;
+    width: max-content;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 20px 20px;
+}
+
+.grid-item {
+  border: 2px solid #aec5eb;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  background-color: #98c1d9;
+  white-space: nowrap;
+  padding: 10px 20px;
+}
+
+.mat-form-field {
+  margin-top: 30px;
+}
+
+.filterby {
+  margin-left: 100px;
+}

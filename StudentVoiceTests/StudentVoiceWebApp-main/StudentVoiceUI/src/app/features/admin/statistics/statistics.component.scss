@@ -1,0 +1,41 @@
+.main-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+.title{
+  height: 50px;
+  padding: 30px 980px 0 0;
+  font-size: 30px;
+}
+
+.box-container{
+  display:flex;
+  width: 1250px;
+  height: 480px;
+  padding: 30px 30px;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+}
+
+.statistics-container{
+  display: flex;
+  height: 420px;
+  width: 600px;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+}
+
+.survey-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  font-size: 19px;
+  align-items: flex-start;
+}
+
+.survey-radio-button {
+  margin: 5px;
+}

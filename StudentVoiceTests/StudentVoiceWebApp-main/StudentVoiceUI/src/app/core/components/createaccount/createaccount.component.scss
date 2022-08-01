@@ -1,0 +1,93 @@
+input,
+form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.main-container {
+  font-size: 18px;
+  display: flex;
+  margin: auto;
+  width: max-content;
+  padding: 70px 40px 70px 40px;
+  flex-direction: column;
+}
+
+.tab1 {
+  display: inline-block;
+  margin-left: 400px;
+}
+
+button {
+
+  text-align: center;
+  background-color: #465775;
+  color: white;
+  padding: 15px 40px;
+  font-size: 18px;
+  text-align: center;
+  border: none;
+  border-radius: 30px;
+
+  &:hover {
+    background-color: #3a4963;
+    cursor: pointer;
+  }
+  &:active,
+  &:visited {
+    color: #01140e;
+  }
+
+}
+
+form{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.box-container {
+  width:800px;
+  height: 550px;
+  //background-color: #eed7c578;
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 50px 20px 40px 20px;
+}
+
+.firstname{
+  display:flex;
+  flex-direction: column;
+}
+.firstname > input{
+  width: 250px;
+}
+.lastname{
+  display:flex;
+  flex-direction: column;
+}
+.lastname > input{
+  width: 250px;
+}
+
+.firsttwo {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  flex-direction: row;
+}
+
+input {
+  width: 600px;
+  padding: 5px 10px;
+  display: inline-block;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 5px;
+}

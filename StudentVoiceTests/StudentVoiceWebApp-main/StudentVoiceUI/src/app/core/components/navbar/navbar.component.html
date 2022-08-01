@@ -1,0 +1,44 @@
+<div class="nav-container">
+  <div class="logo" routerLink="/" routerLinkActive="active">
+    <h1>StudentVoice</h1>
+  </div>
+
+<button mat-icon-button color="white"  mat-button [matMenuTriggerFor]="beforeMenu"
+*ngIf="loggedIn">
+  <mat-icon>menu</mat-icon>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item routerLink="submitquestion" routerLinkActive="active">
+      Submit question
+    </button>
+    <button mat-menu-item routerLink="settings" routerLinkActive="active">
+      Settings
+    </button>
+    <button mat-menu-item routerLink="/" routerLinkActive="active">
+      Sign out
+    </button>
+  </mat-menu>
+</button>
+
+  <button mat-icon-button color="white"
+  *ngIf="loggedIn">
+    <mat-icon routerLink="/myaccount"
+    routerLinkActive="active">person</mat-icon>
+  </button>
+
+  <button mat-icon-button color="white" mat-button [matMenuTriggerFor]="beforeMenu"
+  *ngIf="loggedIn">
+    <mat-icon>notifications</mat-icon>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item routerLink="submitquestion" routerLinkActive="active">
+        Submit question
+      </button>
+      <button mat-menu-item routerLink="settings" routerLinkActive="active">
+        Settings
+      </button>
+      <button  mat-menu-item (click)="logout()">
+        Sign out
+      </button>
+    </mat-menu>
+  </button>
+
+</div>

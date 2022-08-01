@@ -1,0 +1,19 @@
+button{
+  background-color: #465775;
+  padding: 15px 40px;
+  color: white;
+  font-size: 18px;
+  border-radius: 30px;
+  margin-left: 90px;
+  text-align: center;
+  border: none;
+  &:hover,:active{
+    background-color:#3a4963;
+    cursor: pointer;
+  }
+
+}
+div{
+  font-size: 19px;
+
+}

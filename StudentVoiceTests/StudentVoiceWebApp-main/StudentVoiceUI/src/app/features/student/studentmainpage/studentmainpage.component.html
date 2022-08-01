@@ -1,0 +1,47 @@
+<mat-form-field class="filterby" appearance="fill">
+  <mat-label>Filter by</mat-label>
+  <mat-select [(ngModel)]="selectedFilter" name="filter">
+    <mat-option *ngFor="let filter of filters" [value]="filter.value">
+      {{ filter.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Sort by</mat-label>
+  <mat-select [(ngModel)]="selectedSort" name="sort">
+    <mat-option *ngFor="let sort of sorts" [value]="sort.value">
+      {{ sort.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div class="grid-container">
+  <div
+    class="grid-item"
+    routerLink="/answertosurveys"
+    routerLinkActive="active"
+    *ngFor="let survey of surveys"
+  >
+    <p>{{survey.name}}</p>
+    <p>Rating:{{survey.rating}}</p>
+    <p>{{survey.likes}}</p>
+    <p>{{survey.subject}}</p>
+    <p>{{survey.professor}}</p>
+    <p>{{survey.status}}</p>
+  </div>
+</div>
+<!--
+<div class="main-container">
+  <div class="grid-item">
+<mat-grid-list cols="3" rowHeight="100px">
+    <mat-grid-tile
+    *ngFor="let item of items">
+       {{ item.name }}  {{ item.likes }} {{item.rating}}
+       <div class="grid-item"></div>
+    </mat-grid-tile>
+</mat-grid-list>
+</div>
+</div>
+-->
+
