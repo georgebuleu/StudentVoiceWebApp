@@ -92,15 +92,8 @@ export function tokenGetter(){
     MatDialogModule,
     DialogModule,
     HttpClientModule,
-    MatButtonToggleModule,
-    JwtModule.forRoot({
-      config:{
-        tokenGetter: tokenGetter,
-        allowedDomains:["localgost:44389"],
-        disallowedRoutes:[]
+    MatButtonToggleModule
 
-      }
-    })
   ],
   providers: [],
   bootstrap: [AppComponent]

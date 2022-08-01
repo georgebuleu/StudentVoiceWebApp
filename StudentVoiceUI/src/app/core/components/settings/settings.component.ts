@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { DialogSettingsComponent } from '../dialog-settings/dialog-settings.component';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogSettingsComponent} from '../dialog-settings/dialog-settings.component';
 
 @Component({
   selector: 'app-settings',

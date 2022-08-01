@@ -1,9 +1,8 @@
-import { Component, NgModule, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {AuthService} from "../../services/auth.service";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-landingscreen',
@@ -11,28 +10,40 @@ import { Observable } from 'rxjs';
   styleUrls: ['./landingscreen.component.scss']
 })
 export class LandingscreenComponent implements OnInit {
+
   invalidLogin?: boolean;
-  url ="auth/login";
 
-  constructor(private router: Router, private http: HttpClient) { }
 
-  ngOnInit(): void {}
+  loginFormGroup: FormGroup = new FormGroup({
+    email: new FormControl(''),
+    password:new FormControl('')
+  })
 
-  login(form: NgForm) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private authService:AuthService
+  ) { }
 
-    const credentials = {
-      'username': form.value.username,
-      'password':form.value.password
-    }
+  ngOnInit(): void {
 
-    this.http.post(`${environment.apiURL}/${this.url}`,credentials)
-    .subscribe(res => {
+  }
+  onSubmitForm(){
+  this.authService.loginUser({email:this.loginFormGroup.get('email')?.value, password:this.loginFormGroup.get('password')?.value})
+    .subscribe({
+       next: res => {
       const token = (<any>res).token;
       localStorage.setItem("jwt",token);
-      this.invalidLogin = false;
-      this.router.navigate(["/studentmainpage"]);
-    }, err =>{
-      this.invalidLogin = false;
-    });
-  }
+      this.invalidLogin=false;
+      this.router.navigate(["/studentmainpage"]).then(r => console.log("Route student",r))
+    },
+      error: err => {
+         this.invalidLogin=true;
+         console.log(err);
+      }
+      }
+    )
+}
+
+
 }
