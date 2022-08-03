@@ -34,6 +34,11 @@ namespace StudentVoice.Business.Services
            _questionRepository.Delete(_questionRepository.GetById(id));
         }
 
+        public IEnumerable<Question> GetBySurveyId(int surveyId)
+        {
+          return  _questionRepository.GetBySurveyId(surveyId);
+        }
+
         public Question GetQuestion(int id)
         {
            return _questionRepository.GetById(id);

@@ -14,11 +14,13 @@ namespace StudentVoice.Business.Services
     public class SurveyService : ISurveyService
     {
         private readonly ISurveyRepository _surveyRepository;
+        private readonly IQuestionRepository _questionRepository;
         private readonly IMapper _mapper;
 
-        public SurveyService(ISurveyRepository surveyRepository,IMapper mapper)
+        public SurveyService(ISurveyRepository surveyRepository, IQuestionRepository questionRepository, IMapper mapper)
         {
             _surveyRepository = surveyRepository;
+            _questionRepository = questionRepository;
             _mapper = mapper;
         }
 
@@ -32,6 +34,8 @@ namespace StudentVoice.Business.Services
         public void Delete(int id)
         {
            _surveyRepository.Delete(_surveyRepository.GetById(id));
+         
+            
         }
 
         public Survey GetSurvey(int id)

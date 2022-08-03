@@ -13,6 +13,7 @@ namespace StudentVoice.Business.Services.IService
         public IEnumerable<Question> GetQuestion();
         public Question GetQuestion(int id);
         public int AddQuestion(QuestionModel model);
+        public IEnumerable<Question> GetBySurveyId(int surveyId);
         public void DeleteQuestion(int id);
     }
 }

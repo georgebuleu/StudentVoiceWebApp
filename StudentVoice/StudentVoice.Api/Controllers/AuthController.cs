@@ -26,7 +26,7 @@ namespace StudentVoice.Api.Controllers
         {
 
             if (user == null)
-                return BadRequest("InvalidRequest");
+                return BadRequest("Invalid Request");
 
             try
             {
@@ -46,7 +46,7 @@ namespace StudentVoice.Api.Controllers
                         signingCredentials: signingCredentials
                         );
                     var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-                    return Ok(new { Token = tokenString });
+                    return Ok(new AuthenticatedResponse{ Token = tokenString });
 
                 }
                 Console.WriteLine(_userService.GetById(_userService.GetByEmail(user.Email)));

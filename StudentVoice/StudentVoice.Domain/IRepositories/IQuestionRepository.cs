@@ -9,5 +9,6 @@ namespace StudentVoice.Domain.IRepositories
 {
     public interface IQuestionRepository: IBaseRepository<Question>
     {
+        public IEnumerable<Question> GetBySurveyId(int surveyId);
     }
 }

@@ -15,7 +15,13 @@ namespace StudentVoice.Persistance.Repositories
     {
         public QuestionRepository(StudentVoiceDbContext studentVoiceDbContext) : base(studentVoiceDbContext)
         {
-
+            
         }
+        public IEnumerable<Question> GetBySurveyId(int surveyId)
+        {
+            return from Question in _dbContext.Questions
+                   where surveyId == Question.Id
+                   select Question;
+         }
     }
 }

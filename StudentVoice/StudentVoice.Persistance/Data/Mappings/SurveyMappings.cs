@@ -17,6 +17,9 @@ namespace StudentVoice.Persistance.Data.Mappings
                 .HasColumnName("Id")
                 .IsRequired();
 
+            modelBuilder.Entity<Survey>()
+                  .HasMany(s => s.Questions);
+            
           
 
             modelBuilder.Entity<Survey>()

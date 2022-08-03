@@ -19,7 +19,14 @@ namespace StudentVoice.Api.Controllers
         {
             return Ok(_questionService.GetQuestion());
         }
-        
+
+        [HttpGet("{id}")]
+        public IActionResult GetBySureveyId(int id)
+        {
+            return Ok(_questionService.GetBySurveyId(id));
+        }
+
+
         [HttpPost]
         public IActionResult AddQuestion([FromBody]QuestionModel model)
         {

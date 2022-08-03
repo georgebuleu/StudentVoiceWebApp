@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StudentVoice.Persistance.Data;
 using StudentVoice.Domain.IRepositories;
 using Microsoft.EntityFrameworkCore;
+using StudentVoice.Domain.Entities;
 
 namespace StudentVoice.Persistance.Repositories
 {
@@ -25,8 +26,9 @@ namespace StudentVoice.Persistance.Repositories
         }
         public void Delete(T entity)
         {
-            _dbContext.Set<T>().Remove(entity);
-            _dbContext.SaveChanges();
+                _dbContext.Set<T>().Remove(entity);
+                _dbContext.SaveChanges();
+            
         }
         public T GetById(int id)
         {
